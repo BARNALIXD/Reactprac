@@ -1,39 +1,37 @@
 import React, { useState } from 'react'
 import Card from './Components/Card'
+import Navbar from './Components/Navbar'
 
 function App() {
 
-  const data =[
-    {name:"sam", profession : "painters", image:"https://images.unsplash.com/photo-1605811792180-61ee063690de?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",friends:false},
-    {name:"chingu", profession : "dancer", image:"https://images.unsplash.com/photo-1518834107812-67b0b7c58434?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",friends:false},
-    {name:"mingu", profession : "singer", image:"https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",friends:false},
-    {name:"dingu", profession : "entertainer", image:"https://images.unsplash.com/photo-1470020618177-f49a96241ae7?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",friends:false}
-  ];
+ const data = [
+  {image:"https://images.unsplash.com/photo-1475817712127-ef4cd1556aff?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name:"Undenied", artist:"Barnali", added: false},
+  {image:"https://images.unsplash.com/photo-1650886000033-9a7b19073276?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name:"Star", artist:"Chingu", added: false},
+  {image:"https://images.unsplash.com/photo-1483575995838-3f59d40ea156?q=80&w=1004&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name:"Mars", artist:"Bingu", added: false},
+  {image:"https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name:"Jupiter", artist:"wongu", added: true},
+ ];
 
- const[realdata, setrealdata]= useState(data);
- const handlefriendsbutton = (cardindex)=>{
-    setrealdata((previous)=>{
-     return previous.map((item,index)=>{
-        if(index === cardindex){
-          return {...item, friends: !item.friends}
-        }
-       return item;
-      })
-    })
+ const[songData,setSongData]= useState(data);
+ const handleClick = ()=>{
+  alert("hey");
+
  }
+
 
 
   return (
     <>
-    <div className='w-full h-screen bg-zinc-300 flex gap-3 items-center justify-center'>
-    {realdata.map((item,index)=>(
-      <Card key={index} index={index} handleClick={handlefriendsbutton} values={item}/>
-
-    ))}
-    </div>
+    <div className="w-full h-screen bg-zinc-300 ">
+      <Navbar/>
+      <div className=' flex px-20 flex-wrap gap-10 mt-10'>
+      {songData.map((obj)=>{
+        return <Card data={obj} handleClick={handleClick}/>
+      })}
+      
+      </div>
+      </div>
       </>
   )
 }
 
 export default App
-//hghj
