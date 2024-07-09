@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card({data, handleClick}) {
+function Card({data, handleClick,index}) {
 
   const {image, artist, added , name} = data;
 
@@ -13,7 +13,7 @@ function Card({data, handleClick}) {
         <h3 className='text-xl leading-none font-semibold'> {name}</h3>
         <h6 className='text-sm'>{artist}</h6>
       </div>
-      <button onClick={handleClick} className={`px-4 py-3 ${added === false?"bg-orange-600":"bg-green-600"} absolute bottom-0 left-1/2 translate-y-[50%] -translate-x-[50%] whitespace-nowrap ${added === false ? "text-white" : "text-black"} text-xs rounded-full`}>{added=== false ? "Add to favourites":"Added"}</button>
+      <button onClick={()=>{handleClick(index)}} className={`px-4 py-3 ${added === false?"bg-orange-600":"bg-green-600"} absolute bottom-0 left-1/2 translate-y-[50%] -translate-x-[50%] whitespace-nowrap ${added === false ? "text-white" : "text-black"} text-xs rounded-full`}>{added=== false ? "Add to favourites":"Added"}</button>
     </div>
   )
 }
