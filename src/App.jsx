@@ -1,15 +1,19 @@
 import React , {useState} from 'react'
 
 function App() {
-  const [val,setVal] = useState({name:""});
+  const [val,setVal] = useState({name:"" , email : ""});
   const handleSubmit= (event)=>{
     event.preventDefault();
+    console.log(val);
   }
 
   return (
     <div>
-      <form onSubmit={handlesubmit} action=''>
-        <input onChange={(event)=>setVal({name:event.target.value})} type="text" placeholder="name"/>
+      <form  action='' onSubmit={handlesubmit}>
+        <input onChange={(event)=>setVal({...val ,name:event.target.value})} type="text" placeholder="name"/>
+        <input onChange={(event)=>setVal({...val ,name:event.target.value})} type="email" placeholder="email"/>
+
+        <input type="submit" />
       </form>
     </div>
   )
