@@ -2,13 +2,13 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 function App() {
-const {register} = useForm(); 
+const {register ,handleSubmit} = useForm(); 
 
   return (
     <div>
-      <form action=''>
-        <input type='text' placeholder='name'/>
-        <input type='email' placeholder='email'/>
+      <form action='' onSubmit={handleSubmit(data=>console.log(data))}>
+        <input {...register('name')} type='text' placeholder='name'/>
+        <input {...register('email')} type='email' placeholder='email'/>
         <input type='submit'/>
 
       </form>
